@@ -5,12 +5,13 @@ import { ethers } from "ethers";
 import { providerOptions } from "../core/data/providerOptions";
 
 export default function Home() {
-  const [web3Modal, setWeb3Modal] = useState(null);
-  const [provider, setProvider] = useState(null);
-  const [signer, setSigner] = useState(null);
+  // const [web3Modal, setWeb3Modal] = useState(null);
+  // const [provider, setProvider] = useState(null);
+  // const [signer, setSigner] = useState(null);
 
   const [network, setNetwork] = useState(0);
   const [address, setAddress] = useState(null);
+
   // initialize Web3Modal Settings on page load
   // useEffect(() => {
   //   const _web3Modal = new Web3Modal({
@@ -60,7 +61,6 @@ export default function Home() {
       if (_provider) {
         const history = await _provider.getHistory(address);
         const balance = await _provider.getBalance(address);
-
         console.log(history);
         console.log(ethers.utils.formatEther(balance));
       }
@@ -99,7 +99,7 @@ export default function Home() {
     console.log(address.target.value);
     setAddress(address.target.value);
   };
-
+  //TODO: Need to add functionality to get tokens held by address
   return (
     <div>
       <Head>
